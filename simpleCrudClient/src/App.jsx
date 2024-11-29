@@ -22,6 +22,7 @@ function App() {
                 console.log(data)
                 if(data.insertedId){
                     alert("added successfully")
+                    form.reset()
                 }
             })
     }
@@ -31,8 +32,10 @@ function App() {
       <h1>Simple Crud</h1>
         <form onSubmit={handleSubmit}>
             <input className={"input input-accent m-2"} placeholder={"Name"} type={"text"} name={"name"}/>
+            <br/>
             <input className={"input input-accent m-2"} placeholder={"Email"} type={"email"} name={"email"}/>
-            <input className={"input input-accent m-2"} type={"submit"}/>
+            <br/>
+            <input className={"input input-accent m-2"} type={"submit"} value={"Add User"}/>
         </form>
     </>
   )
