@@ -8,23 +8,19 @@ function App() {
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
-        console.log(name)
+        const user = {name,email};
+        console.log(user);
         fetch("http://localhost:5000/users", {
             method: "POST",
-            headers:{
-                "content-type": "application/json",
+            headers: {
+                "content-type": "application/json"
             },
-            body: JSON.stringify({name,email})
+            body: JSON.stringify(user)
+        }).then(res=>res.json()).then(data=> {
+            console.log(data)
+            form.reset();
+        });
 
-        })
-            .then(res=> res.json())
-            .then(data=> {
-                console.log(data)
-                if(data.insertedId){
-                    alert("added successfully")
-                    form.reset()
-                }
-            })
     }
 
   return (
